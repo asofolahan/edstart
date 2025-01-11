@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZyxLearn - Smart Assessment for K12 Students</title>
+    <title>ZyxLearn - Smart Assessment Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -83,7 +83,7 @@
                                     <option value="parent">Parent</option>
                                     <option value="teacher">Teacher</option>
                                 </select>
-                                <button type="submit" class="w-full sm:w-auto bg-primary-DEFAULT text-white px-8 py-3 rounded-lg hover:bg-primary-dark font-medium transition-colors whitespace-nowrap">
+                                <button type="submit" class="w-full sm:w-auto bg-primary-DEFAULT hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 whitespace-nowrap">
                                     Join Waitlist
                                 </button>
                             </form>
@@ -138,52 +138,61 @@
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Educators Banner -->
-        <div class="max-w-4xl mx-auto my-16">
-            <div class="bg-blue-50 p-6 rounded-xl border-2 border-blue-200">
-                <div class="flex items-center justify-center space-x-3">
-                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="max-w-4xl mx-auto my-12">
+            <div class="bg-blue-50 px-4 py-3 rounded-lg border border-blue-200">
+                <div class="flex items-center justify-center space-x-2">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
-                    <span class="text-xl text-blue-700 font-semibold">Built with experienced math and science educators</span>
+                    <span class="text-base text-blue-700 font-medium">Built with experienced math and science educators</span>
                 </div>
             </div>
         </div>
 
         <!-- Value Props -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <!-- Quick Assessment -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border-2 border-primary-light/20">
-                <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-primary-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-lg font-semibold mb-2">Quick Assessments</h3>
-                <p class="text-gray-600">15-minute adaptive tests that identify knowledge gaps accurately</p>
-            </div>
-
-            <!-- Personalized Content -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border-2 border-primary-light/20">
-                <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-primary-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-lg font-semibold mb-2">Personalized Content</h3>
-                <p class="text-gray-600">AI-curated study materials matched to your learning style</p>
-            </div>
-
-            <!-- Progress Tracking -->
-            <div class="bg-white p-8 rounded-xl shadow-sm border-2 border-primary-light/20">
-                <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-primary-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-lg font-semibold mb-2">Progress Tracking</h3>
-                <p class="text-gray-600">Real-time insights for students, parents, and teachers</p>
-            </div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+    <!-- Quick Assessment -->
+    <div class="bg-white p-8 rounded-xl shadow-sm border-2 border-primary-light/20 hover:border-primary-DEFAULT transition-all duration-200">
+        <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Same SVG -->
+            </svg>
         </div>
+        <h3 class="text-lg font-semibold mb-2 text-gray-900 flex items-center gap-2">
+            Quick Assessments
+            <span class="text-primary-DEFAULT">✨</span>
+        </h3>
+        <p class="text-gray-600">15-minute adaptive tests that identify math and science knowledge gaps accurately</p>
+    </div>
+
+    <!-- Personalized Content -->
+    <div class="bg-white p-8 rounded-xl shadow-sm border-2 border-primary-light/20 hover:border-primary-DEFAULT transition-all duration-200">
+        <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Same SVG -->
+            </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2 text-gray-900 flex items-center gap-2">
+            Personalized Content
+            <span class="text-primary-DEFAULT">🎯</span>
+        </h3>
+        <p class="text-gray-600">AI-curated math and science learning paths matched to your style</p>
+    </div>
+
+    <!-- Progress Tracking -->
+    <div class="bg-white p-8 rounded-xl shadow-sm border-2 border-primary-light/20 hover:border-primary-DEFAULT transition-all duration-200">
+        <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Same SVG -->
+            </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2 text-gray-900 flex items-center gap-2">
+            Progress Tracking
+            <span class="text-primary-DEFAULT">📈</span>
+        </h3>
+        <p class="text-gray-600">Real-time insights showing your improvement in every subject</p>
+    </div>
+</div>
 
         <!-- Early Access Benefits -->
         <div class="text-center mb-16">
