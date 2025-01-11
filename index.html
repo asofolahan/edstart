@@ -51,74 +51,219 @@
         </nav>
     </header>
 
-    <!-- Hero Section with Visual Background -->
-<section class="relative overflow-hidden">
-    <!-- Background Visual -->
-    <div class="absolute inset-0 -z-10">
-        <svg class="w-full h-full" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-            <!-- Background -->
-            <rect width="800" height="600" fill="#F5F3FF" />
+<!-- Hero Section with Graph Learning Path -->
+<section class="relative pt-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+            <!-- Learning Path Visual -->
+            <div class="w-full lg:w-1/2 h-[600px] bg-white/50 rounded-2xl p-4">
+                <svg class="w-full h-full" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="masteredGradient">
+                            <stop offset="0%" stop-color="#22c55e" stop-opacity="0.3"/>
+                            <stop offset="100%" stop-color="#22c55e" stop-opacity="0.1"/>
+                        </linearGradient>
+                        <linearGradient id="attentionGradient">
+                            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3"/>
+                            <stop offset="100%" stop-color="#ef4444" stop-opacity="0.1"/>
+                        </linearGradient>
+                        <linearGradient id="loadingGradient">
+                            <stop offset="0%" stop-color="#6b7280" stop-opacity="0.3"/>
+                            <stop offset="100%" stop-color="#6b7280" stop-opacity="0.1"/>
+                        </linearGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
 
-            <!-- Animated elements -->
-            <circle cx="400" cy="300" r="160" fill="#7C3AED" opacity="0.1">
-                <animate attributeName="r" values="160;180;160" dur="4s" repeatCount="indefinite" />
-            </circle>
-            
-            <!-- Decorative elements -->
-            <path d="M300,200 Q400,100 500,200 T700,200" stroke="#7C3AED" stroke-width="8" fill="none" opacity="0.2" />
-            <circle cx="300" cy="250" r="40" fill="#FFD700" opacity="0.6" />
-            <circle cx="500" cy="250" r="60" fill="#7C3AED" opacity="0.3" />
-            
-            <!-- Abstract learning path -->
-            <path d="M200,400 C300,350 400,450 600,350" stroke="#FFD700" stroke-width="6" fill="none" stroke-dasharray="10,10" opacity="0.6">
-                <animate attributeName="d" 
-                        values="M200,400 C300,350 400,450 600,350;
-                                M200,380 C300,330 400,430 600,330;
-                                M200,400 C300,350 400,450 600,350"
-                        dur="6s" repeatCount="indefinite" />
-            </path>
+                    <!-- Connecting Paths -->
+                    <g class="paths">
+                        <!-- Mastered connections -->
+                        <path d="M150 80 Q 250 120 350 80" 
+                              stroke="#22c55e" 
+                              stroke-width="3" 
+                              fill="none" 
+                              stroke-dasharray="6,6"
+                              opacity="0.3"/>
 
-            <!-- Learning milestones -->
-            <circle cx="300" cy="380" r="15" fill="#FFD700" opacity="0.6">
-                <animate attributeName="cy" values="380;370;380" dur="2s" repeatCount="indefinite" />
-            </circle>
-            <circle cx="400" cy="400" r="20" fill="#7C3AED" opacity="0.3">
-                <animate attributeName="cy" values="400;390;400" dur="3s" repeatCount="indefinite" />
-            </circle>
-            <circle cx="550" cy="360" r="15" fill="#FFD700" opacity="0.6">
-                <animate attributeName="cy" values="360;350;360" dur="2.5s" repeatCount="indefinite" />
-            </circle>
-        </svg>
-    </div>
+                        <!-- Needs attention connections -->
+                        <path d="M150 80 Q 200 180 250 200" 
+                              stroke="#ef4444" 
+                              stroke-width="3" 
+                              fill="none" 
+                              opacity="0.3"/>
+                        
+                        <path d="M350 80 Q 300 180 250 200" 
+                              stroke="#ef4444" 
+                              stroke-width="3" 
+                              fill="none" 
+                              opacity="0.3"/>
 
-    <!-- Content -->
-    <div class="relative pt-24 pb-16 px-4">
-        <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl">
-                Learn Better with 
-                <span class="text-primary-DEFAULT block">Smart Assessment</span>
-            </h1>
-            <p class="mt-6 text-xl text-gray-600 leading-relaxed">
-                Regular assessments and personalized recommendations help you learn smarter, not harder. Get instant feedback and curated content tailored to your needs.
-            </p>
+                        <!-- Loading connections with animation -->
+                        <path d="M250 200 Q 200 280 150 320" 
+                              stroke="#6b7280" 
+                              stroke-width="2" 
+                              fill="none" 
+                              stroke-dasharray="4,4"
+                              opacity="0.2">
+                            <animate attributeName="stroke-dashoffset" 
+                                     from="0" 
+                                     to="24" 
+                                     dur="2s" 
+                                     repeatCount="indefinite"/>
+                        </path>
 
-            <!-- Inline CTA Form -->
-            <div class="mt-10">
-                <form class="flex flex-col sm:flex-row gap-3 justify-center">
-                    <div class="flex-1 max-w-xs">
-                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 border-2 border-primary-light/20 rounded-lg focus:ring-2 focus:ring-primary-DEFAULT focus:border-primary-DEFAULT" required>
-                    </div>
-                    <select class="w-full sm:w-auto px-4 py-3 border-2 border-primary-light/20 rounded-lg focus:ring-2 focus:ring-primary-DEFAULT focus:border-primary-DEFAULT">
-                        <option value="" disabled selected>I am a...</option>
-                        <option value="student">Student</option>
-                        <option value="parent">Parent</option>
-                        <option value="teacher">Teacher</option>
-                    </select>
-                    <button type="submit" class="w-full sm:w-auto bg-primary-dark text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors whitespace-nowrap">
-                        Join Waitlist
-                    </button>
-                </form>
-                <p class="mt-4 text-sm text-gray-500">1 month free access and 20% lifetime discount</p>
+                        <path d="M250 200 Q 300 280 350 320" 
+                              stroke="#6b7280" 
+                              stroke-width="2" 
+                              fill="none" 
+                              stroke-dasharray="4,4"
+                              opacity="0.2">
+                            <animate attributeName="stroke-dashoffset" 
+                                     from="0" 
+                                     to="24" 
+                                     dur="2s" 
+                                     repeatCount="indefinite"/>
+                        </path>
+
+                        <!-- Bottom connections -->
+                        <path d="M150 320 Q 200 400 250 450" 
+                              stroke="#6b7280" 
+                              stroke-width="2" 
+                              fill="none" 
+                              stroke-dasharray="4,4"
+                              opacity="0.2"/>
+
+                        <path d="M350 320 Q 300 400 250 450" 
+                              stroke="#6b7280" 
+                              stroke-width="2" 
+                              fill="none" 
+                              stroke-dasharray="4,4"
+                              opacity="0.2"/>
+                    </g>
+
+                    <!-- Top Tier (Mastered) -->
+                    <g transform="translate(150,80)" class="mastered">
+                        <circle r="35" fill="url(#masteredGradient)" filter="url(#glow)">
+                            <animate attributeName="r" values="35;37;35" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <path d="M-15 0 L-5 10 L15 -10" 
+                              stroke="#22c55e" 
+                              stroke-width="4" 
+                              fill="none" 
+                              stroke-linecap="round" 
+                              stroke-linejoin="round"/>
+                        <text text-anchor="middle" dy="60" fill="#22c55e" font-size="14" font-weight="bold">
+                            Order of Operations
+                        </text>
+                    </g>
+
+                    <g transform="translate(350,80)" class="mastered">
+                        <circle r="35" fill="url(#masteredGradient)" filter="url(#glow)">
+                            <animate attributeName="r" values="35;37;35" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <path d="M-15 0 L-5 10 L15 -10" 
+                              stroke="#22c55e" 
+                              stroke-width="4" 
+                              fill="none" 
+                              stroke-linecap="round" 
+                              stroke-linejoin="round"/>
+                        <text text-anchor="middle" dy="60" fill="#22c55e" font-size="14" font-weight="bold">
+                            Basic Numbers
+                        </text>
+                    </g>
+
+                    <!-- Middle (Needs Attention) -->
+                    <g transform="translate(250,200)" class="attention">
+                        <circle r="35" fill="url(#attentionGradient)" filter="url(#glow)"/>
+                        <!-- Warning symbol -->
+                        <path d="M0 -20 L3 -10 L3 -5 L-3 -5 L-3 -10 Z M-1 0 H1 V2 H-1" 
+                              fill="#ef4444"/>
+                        <text text-anchor="middle" dy="60" fill="#ef4444" font-size="14" font-weight="bold">
+                            Exponents
+                        </text>
+                    </g>
+
+                    <!-- Bottom Tier (Loading) -->
+                    <g transform="translate(150,320)" class="loading">
+                        <circle r="35" fill="url(#loadingGradient)" filter="url(#glow)"/>
+                        <circle cx="0" cy="0" r="25" fill="none" stroke="#6b7280" stroke-width="4" stroke-dasharray="110,157">
+                            <animateTransform attributeName="transform"
+                                            type="rotate"
+                                            from="0 0 0"
+                                            to="360 0 0"
+                                            dur="3s"
+                                            repeatCount="indefinite"/>
+                        </circle>
+                        <text text-anchor="middle" dy="60" fill="#6b7280" font-size="14">
+                            Factoring
+                        </text>
+                    </g>
+
+                    <g transform="translate(350,320)" class="loading">
+                        <circle r="35" fill="url(#loadingGradient)" filter="url(#glow)"/>
+                        <circle cx="0" cy="0" r="25" fill="none" stroke="#6b7280" stroke-width="4" stroke-dasharray="110,157">
+                            <animateTransform attributeName="transform"
+                                            type="rotate"
+                                            from="0 0 0"
+                                            to="360 0 0"
+                                            dur="3s"
+                                            repeatCount="indefinite"/>
+                        </circle>
+                        <text text-anchor="middle" dy="60" fill="#6b7280" font-size="14">
+                            Square Roots
+                        </text>
+                    </g>
+
+                    <!-- Final Node (Loading) -->
+                    <g transform="translate(250,450)" class="loading">
+                        <circle r="35" fill="url(#loadingGradient)" filter="url(#glow)"/>
+                        <circle cx="0" cy="0" r="25" fill="none" stroke="#6b7280" stroke-width="4" stroke-dasharray="110,157">
+                            <animateTransform attributeName="transform"
+                                            type="rotate"
+                                            from="0 0 0"
+                                            to="360 0 0"
+                                            dur="3s"
+                                            repeatCount="indefinite"/>
+                        </circle>
+                        <text text-anchor="middle" dy="60" fill="#6b7280" font-size="14">
+                            Quadratic Formula
+                        </text>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Content -->
+            <div class="w-full lg:w-1/2 text-center lg:text-left">
+                <h1 class="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl">
+                    Learn Better with 
+                    <span class="text-primary-DEFAULT block">Smart Assessment</span>
+                </h1>
+                <p class="mt-6 text-xl text-gray-600 leading-relaxed">
+                    Regular assessments and personalized recommendations help you learn smarter, not harder. Get instant feedback and curated content tailored to your needs.
+                </p>
+
+                <div class="mt-10">
+                    <form class="flex flex-col sm:flex-row gap-3">
+                        <div class="flex-1 max-w-xs">
+                            <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 border-2 border-primary-light/20 rounded-lg focus:ring-2 focus:ring-primary-DEFAULT focus:border-primary-DEFAULT" required>
+                        </div>
+                        <select class="w-full sm:w-auto px-4 py-3 border-2 border-primary-light/20 rounded-lg focus:ring-2 focus:ring-primary-DEFAULT focus:border-primary-DEFAULT">
+                            <option value="" disabled selected>I am a...</option>
+                            <option value="student">Student</option>
+                            <option value="parent">Parent</option>
+                            <option value="teacher">Teacher</option>
+                        </select>
+                        <button type="submit" class="w-full sm:w-auto bg-primary-dark text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors">
+                            Join Waitlist
+                        </button>
+                    </form>
+                    <p class="mt-3 text-sm text-gray-500">1 month free access and 20% lifetime discount</p>
+                </div>
             </div>
         </div>
     </div>
