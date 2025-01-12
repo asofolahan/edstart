@@ -55,10 +55,10 @@
 <!-- Hero Section with Graph Learning Path -->
 <section class="relative pt-16 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
-            <!-- Learning Path Visual - Adjusted height -->
-            <div class="w-full lg:w-1/2 h-[450px] bg-white/50 rounded-2xl p-4">
-                <svg class="w-full h-full" viewBox="0 0 500 450" xmlns="http://www.w3.org/2000/svg">
+        <div class="flex flex-col lg:flex-row gap-8 items-start">
+            <!-- Learning Path Visual -->
+            <div class="w-full lg:w-3/5 h-[500px] bg-white/50 rounded-2xl p-6">
+                <svg class="w-full h-full" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="masteredGradient">
                             <stop offset="0%" stop-color="#22c55e" stop-opacity="0.3"/>
@@ -81,10 +81,10 @@
                         </filter>
                     </defs>
 
-                    <!-- Connecting Paths - Updated coordinates -->
+                    <!-- Connecting Paths -->
                     <g class="paths">
                         <!-- Mastered connections -->
-                        <path d="M150 60 Q 250 90 350 60" 
+                        <path d="M150 50 Q 250 80 350 50" 
                               stroke="#22c55e" 
                               stroke-width="3" 
                               fill="none" 
@@ -92,20 +92,20 @@
                               opacity="0.3"/>
 
                         <!-- Needs attention connections -->
-                        <path d="M150 60 Q 200 120 250 150" 
+                        <path d="M150 50 Q 200 100 250 130" 
                               stroke="#ef4444" 
                               stroke-width="3" 
                               fill="none" 
                               opacity="0.3"/>
                         
-                        <path d="M350 60 Q 300 120 250 150" 
+                        <path d="M350 50 Q 300 100 250 130" 
                               stroke="#ef4444" 
                               stroke-width="3" 
                               fill="none" 
                               opacity="0.3"/>
 
-                        <!-- Loading connections with animation -->
-                        <path d="M250 150 Q 200 200 150 240" 
+                        <!-- Loading connections -->
+                        <path d="M250 130 Q 200 180 150 220" 
                               stroke="#6b7280" 
                               stroke-width="2" 
                               fill="none" 
@@ -118,28 +118,21 @@
                                      repeatCount="indefinite"/>
                         </path>
 
-                        <path d="M250 150 Q 300 200 350 240" 
-                              stroke="#6b7280" 
-                              stroke-width="2" 
-                              fill="none" 
-                              stroke-dasharray="4,4"
-                              opacity="0.2">
-                            <animate attributeName="stroke-dashoffset" 
-                                     from="0" 
-                                     to="24" 
-                                     dur="2s" 
-                                     repeatCount="indefinite"/>
-                        </path>
-
-                        <!-- Bottom connections -->
-                        <path d="M150 240 Q 200 300 250 330" 
+                        <path d="M250 130 Q 300 180 350 220" 
                               stroke="#6b7280" 
                               stroke-width="2" 
                               fill="none" 
                               stroke-dasharray="4,4"
                               opacity="0.2"/>
 
-                        <path d="M350 240 Q 300 300 250 330" 
+                        <path d="M150 220 Q 200 270 250 300" 
+                              stroke="#6b7280" 
+                              stroke-width="2" 
+                              fill="none" 
+                              stroke-dasharray="4,4"
+                              opacity="0.2"/>
+
+                        <path d="M350 220 Q 300 270 250 300" 
                               stroke="#6b7280" 
                               stroke-width="2" 
                               fill="none" 
@@ -147,8 +140,9 @@
                               opacity="0.2"/>
                     </g>
 
-                    <!-- Top Tier (Mastered) - Updated Y positions -->
-                    <g transform="translate(150,60)" class="mastered">
+                    <!-- Nodes -->
+                    <!-- Top Tier (Mastered) -->
+                    <g transform="translate(150,50)" class="mastered">
                         <circle r="35" fill="url(#masteredGradient)" filter="url(#glow)">
                             <animate attributeName="r" values="35;37;35" dur="2s" repeatCount="indefinite"/>
                         </circle>
@@ -163,7 +157,7 @@
                         </text>
                     </g>
 
-                    <g transform="translate(350,60)" class="mastered">
+                    <g transform="translate(350,50)" class="mastered">
                         <circle r="35" fill="url(#masteredGradient)" filter="url(#glow)">
                             <animate attributeName="r" values="35;37;35" dur="2s" repeatCount="indefinite"/>
                         </circle>
@@ -179,9 +173,8 @@
                     </g>
 
                     <!-- Middle (Needs Attention) -->
-                    <g transform="translate(250,150)" class="attention">
+                    <g transform="translate(250,130)" class="attention">
                         <circle r="35" fill="url(#attentionGradient)" filter="url(#glow)"/>
-                        <!-- Warning symbol -->
                         <path d="M0 -20 L3 -10 L3 -5 L-3 -5 L-3 -10 Z M-1 0 H1 V2 H-1" 
                               fill="#ef4444"/>
                         <text text-anchor="middle" dy="60" fill="#ef4444" font-size="14" font-weight="bold">
@@ -190,7 +183,7 @@
                     </g>
 
                     <!-- Bottom Tier (Loading) -->
-                    <g transform="translate(150,240)" class="loading">
+                    <g transform="translate(150,220)" class="loading">
                         <circle r="35" fill="url(#loadingGradient)" filter="url(#glow)"/>
                         <circle cx="0" cy="0" r="25" fill="none" stroke="#6b7280" stroke-width="4" stroke-dasharray="110,157">
                             <animateTransform attributeName="transform"
@@ -205,7 +198,7 @@
                         </text>
                     </g>
 
-                    <g transform="translate(350,240)" class="loading">
+                    <g transform="translate(350,220)" class="loading">
                         <circle r="35" fill="url(#loadingGradient)" filter="url(#glow)"/>
                         <circle cx="0" cy="0" r="25" fill="none" stroke="#6b7280" stroke-width="4" stroke-dasharray="110,157">
                             <animateTransform attributeName="transform"
@@ -221,7 +214,7 @@
                     </g>
 
                     <!-- Final Node (Loading) -->
-                    <g transform="translate(250,330)" class="loading">
+                    <g transform="translate(250,300)" class="loading">
                         <circle r="35" fill="url(#loadingGradient)" filter="url(#glow)"/>
                         <circle cx="0" cy="0" r="25" fill="none" stroke="#6b7280" stroke-width="4" stroke-dasharray="110,157">
                             <animateTransform attributeName="transform"
@@ -235,11 +228,48 @@
                             Quadratic Formula
                         </text>
                     </g>
+
+                    <!-- Legend -->
+                    <g transform="translate(50, 420)" class="legend">
+                        <!-- Mastered Legend -->
+                        <g transform="translate(0, 0)">
+                            <circle r="15" fill="url(#masteredGradient)" filter="url(#glow)"/>
+                            <path d="M-8 0 L-3 5 L8 -5" 
+                                  stroke="#22c55e" 
+                                  stroke-width="2" 
+                                  fill="none" 
+                                  stroke-linecap="round" 
+                                  stroke-linejoin="round"/>
+                            <text x="25" y="5" fill="#22c55e" font-size="14" font-weight="medium">Mastered</text>
+                        </g>
+
+                        <!-- Needs Attention Legend -->
+                        <g transform="translate(150, 0)">
+                            <circle r="15" fill="url(#attentionGradient)" filter="url(#glow)"/>
+                            <path d="M0 -10 L2 -5 L2 -2 L-2 -2 L-2 -5 Z M-0.5 0 H0.5 V2 H-0.5" 
+                                  fill="#ef4444"/>
+                            <text x="25" y="5" fill="#ef4444" font-size="14" font-weight="medium">Needs Review</text>
+                        </g>
+
+                        <!-- Loading Legend -->
+                        <g transform="translate(320, 0)">
+                            <circle r="15" fill="url(#loadingGradient)" filter="url(#glow)"/>
+                            <circle cx="0" cy="0" r="10" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="40,60">
+                                <animateTransform attributeName="transform"
+                                                type="rotate"
+                                                from="0 0 0"
+                                                to="360 0 0"
+                                                dur="3s"
+                                                repeatCount="indefinite"/>
+                            </circle>
+                            <text x="25" y="5" fill="#6b7280" font-size="14" font-weight="medium">Coming Up</text>
+                        </g>
+                    </g>
                 </svg>
             </div>
 
             <!-- Content -->
-            <div class="w-full lg:w-1/2 text-center lg:text-left">
+            <div class="w-full lg:w-2/5 text-center lg:text-left">
                 <h1 class="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl">
                     Learn Better with 
                     <span class="text-primary-DEFAULT block">Smart Assessment</span>
@@ -259,7 +289,7 @@
                             <option value="parent">Parent</option>
                             <option value="teacher">Teacher</option>
                         </select>
-                        <button type="submit" class="w-full sm:w-auto bg-primary-dfult text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors">
+                        <button type="submit" class="w-full sm:w-auto bg-primary-DEFAULT text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors">
                             Join Waitlist
                         </button>
                     </form>
@@ -272,7 +302,7 @@
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Educators Banner -->
-        <div class="max-w-4xl mx-auto my-12">
+        <div class="mx-auto my-12">
             <div class="bg-blue-50 px-4 py-3 rounded-lg border border-blue-200">
                 <div class="flex items-center justify-center space-x-2">
                     <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -282,6 +312,13 @@
                 </div>
             </div>
         </div>
+
+        <!-- <div class="flex items-center justify-center space-x-2 bg-blue-100 text-blue-800 px-6 py-2 rounded-lg mb-8 border border-blue-200 my-12">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            <span class="font-medium">Built with experienced math and science educators</span>
+        </div> -->
 
         <!-- Value Props -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
