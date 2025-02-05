@@ -3,127 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeskLab - Smart Assessment Learning Platform</title>
+    <title>DeskLab - Smart Math Assessment Platform</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        .gradient-bg {
-            background: linear-gradient(180deg, #EBF5FF 0%, #FFFFFF 100%);
+        .hero-gradient {
+            background: linear-gradient(135deg, #E3F2FD 0%, #FFFFFF 100%);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
         }
     </style>
 </head>
-<body>
-    <div class="gradient-bg min-h-screen">
+<body class="font-sans antialiased">
+    <div class="hero-gradient min-h-screen">
         <!-- Header -->
-        <header class="container mx-auto px-4 py-6">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <img src="MDL logo.png" alt="DeskLab Logo" class="h-10 w-auto"/>
-                    <span class="ml-2 text-xl font-bold">DeskLab</span>
+        <header class="container mx-auto px-6 py-6">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="MDL logo.png" alt="DeskLab Logo" class="h-14 w-auto"/>
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">DeskLab</span>
                 </div>
-            </div>
+            </nav>
         </header>
 
-        <!-- Hero Section with Form -->
-        <section class="container mx-auto px-4 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Left side - Hero Content -->
-                <div>
-                    <div class="inline-block bg-orange-100 text-orange-700 px-4 py-1 rounded-full mb-6">
-                        Coming Soon - Join the Waitlist
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <!-- Left Column -->
+                <div class="space-y-8">
+                    <div class="inline-flex items-center px-6 py-2 rounded-full bg-blue-50 border border-blue-100">
+                        <span class="animate-pulse mr-2 h-2 w-2 rounded-full bg-blue-600"></span>
+                        <span class="text-blue-800 font-medium">Coming Soon - Join Waitlist</span>
                     </div>
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
-                        Learn Maths Better with Smart Assessment
+                    
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                        Master <span class="text-blue-600">Mathematics</span> Through Smart Assessment
                     </h1>
-                    <p class="text-xl text-gray-600 mb-8">
-                        Regular assessments and personalized recommendations help you learn smarter, not harder. Get instant feedback and curated content tailored to your needs.
+                    
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        Transform your math learning journey with personalized assessments and AI-powered recommendations. Get instant feedback and master concepts at your own pace.
                     </p>
-                    <div class="flex flex-wrap gap-4 mb-8">
-                        <div class="flex items-center gap-2">
+                    
+                    <div class="flex flex-wrap gap-6">
+                        <div class="flex items-center gap-3 bg-white px-4 py-2 rounded-lg shadow-sm">
                             <i class="fas fa-check-circle text-green-500"></i>
-                            <span>Grades 5-10</span>
+                            <span class="font-medium">Grades 5-10</span>
                         </div>
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-3 bg-white px-4 py-2 rounded-lg shadow-sm">
                             <i class="fas fa-check-circle text-green-500"></i>
-                            <span>Complete Math Curriculum</span>
+                            <span class="font-medium">Complete Math Curriculum</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right side - Form -->
-                <div class="bg-white rounded-lg shadow-lg p-8">
-                    <h2 class="text-2xl font-bold mb-6">Get Early Access</h2>
-                    <form class="space-y-4">
-                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <select class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="">I am a...</option>
-                            <option value="student">Student</option>
-                            <option value="parent">Parent</option>
-                            <option value="teacher">Teacher</option>
-                        </select>
-                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium transition duration-200">
-                            Join Waitlist
-                        </button>
-                        <p class="text-sm text-gray-500 text-center">
-                            Join now and get 3 months free access when we launch
-                        </p>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features -->
-        <section class="container mx-auto px-4 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <div class="space-y-4">
-                        <i class="fas fa-bolt text-4xl text-blue-600"></i>
-                        <h3 class="text-xl font-bold">Quick Assessments</h3>
-                        <p class="text-gray-600">15-minute adaptive tests that identify knowledge gaps accurately</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <div class="space-y-4">
-                        <i class="fas fa-book-open text-4xl text-blue-600"></i>
-                        <h3 class="text-xl font-bold">Personalized Content</h3>
-                        <p class="text-gray-600">AI-curated study materials matched to your learning style</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <div class="space-y-4">
-                        <i class="fas fa-chart-line text-4xl text-blue-600"></i>
-                        <h3 class="text-xl font-bold">Progress Tracking</h3>
-                        <p class="text-gray-600">Real-time insights for students, parents, and teachers</p>
+                <!-- Right Column - Form -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 custom-shadow border border-gray-100">
+                    <div class="space-y-6">
+                        <div class="text-center">
+                            <h2 class="text-2xl font-bold text-gray-800">Get Early Access</h2>
+                            <p class="text-gray-600 mt-2">Be among the first to experience DeskLab</p>
+                        </div>
+                        
+                        <form class="space-y-4">
+                            <div class="space-y-2">
+                                <input 
+                                    type="email" 
+                                    placeholder="Enter your email" 
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                                />
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <select 
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                                >
+                                    <option value="">I am a...</option>
+                                    <option value="student">Student</option>
+                                    <option value="parent">Parent</option>
+                                    <option value="teacher">Teacher</option>
+                                </select>
+                            </div>
+                            
+                            <button class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-4 px-6 rounded-lg font-medium transition duration-200 transform hover:scale-[1.02]">
+                                Join Waitlist
+                            </button>
+                            
+                            <div class="text-center">
+                                <p class="text-sm text-gray-500">
+                                    🎉 Get 3 months free access at launch
+                                </p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Trust Indicators -->
-        <section class="bg-gray-50 py-16">
-            <div class="container mx-auto px-4">
+        <!-- Features Section -->
+        <section class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">Why Choose DeskLab?</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Experience a revolutionary approach to mathematics learning</p>
+                </div>
+                
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="flex items-start gap-4">
-                        <i class="fas fa-globe text-2xl text-blue-600"></i>
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-bolt text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Smart Assessments</h3>
+                        <p class="text-gray-600">Adaptive tests that precisely identify knowledge gaps and provide targeted recommendations</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-book-open text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Personalized Learning</h3>
+                        <p class="text-gray-600">AI-powered content curation that adapts to your unique learning style and pace</p>
+                    </div>
+
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Progress Insights</h3>
+                        <p class="text-gray-600">Detailed analytics and progress tracking to help you stay on top of your learning journey</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Section -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="flex items-start gap-6">
+                        <div class="h-12 w-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-globe text-xl text-blue-600"></i>
+                        </div>
                         <div>
-                            <h3 class="font-bold mb-2">Curriculum Aligned</h3>
-                            <p class="text-gray-600">Mapped to educational standards across India, Nigeria, and USA</p>
+                            <h3 class="text-lg font-bold mb-3">Global Curriculum</h3>
+                            <p class="text-gray-600 leading-relaxed">Aligned with educational standards across India, Nigeria, and USA</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <i class="fas fa-shield-alt text-2xl text-blue-600"></i>
+
+                    <div class="flex items-start gap-6">
+                        <div class="h-12 w-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield-alt text-xl text-blue-600"></i>
+                        </div>
                         <div>
-                            <h3 class="font-bold mb-2">Safe & Secure</h3>
-                            <p class="text-gray-600">End-to-end encryption and COPPA-compliant data protection</p>
+                            <h3 class="text-lg font-bold mb-3">Safe & Secure</h3>
+                            <p class="text-gray-600 leading-relaxed">Enterprise-grade security with COPPA-compliant data protection</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <i class="fas fa-users text-2xl text-blue-600"></i>
+
+                    <div class="flex items-start gap-6">
+                        <div class="h-12 w-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-users text-xl text-blue-600"></i>
+                        </div>
                         <div>
-                            <h3 class="font-bold mb-2">Academic Advisory</h3>
-                            <p class="text-gray-600">Guided by experienced educators and learning experts</p>
+                            <h3 class="text-lg font-bold mb-3">Expert Support</h3>
+                            <p class="text-gray-600 leading-relaxed">Backed by experienced educators and learning specialists</p>
                         </div>
                     </div>
                 </div>
@@ -131,9 +178,15 @@
         </section>
 
         <!-- Footer -->
-        <footer class="bg-gray-50 py-8">
-            <div class="container mx-auto px-4 text-center text-gray-600">
-                <p>© 2025 DeskLab. All rights reserved.</p>
+        <footer class="bg-gray-50 py-12">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col items-center justify-center space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <img src="MDL logo.png" alt="DeskLab Logo" class="h-8 w-auto"/>
+                        <span class="font-bold text-gray-800">DeskLab</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">© 2025 DeskLab. All rights reserved.</p>
+                </div>
             </div>
         </footer>
     </div>
