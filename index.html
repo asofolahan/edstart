@@ -3,464 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZyxLearn - Smart Assessment Platform</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            light: '#60A5FA',
-                            DEFAULT: '#7C3AED',
-                            dark: '#6D28D9',
-                            dfult: '#7c3aed'
-                        }
-                    }
-                }
-            }
+    <title>DeskLab - Smart Assessment Learning Platform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(180deg, #EBF5FF 0%, #FFFFFF 100%);
         }
-    </script>
+    </style>
 </head>
-<body class="bg-white min-h-screen">
-    <!-- Header -->
-    <header class="bg-white shadow-sm fixed w-full z-10">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
+<body>
+    <div class="gradient-bg min-h-screen">
+        <!-- Header -->
+        <header class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <!-- Logo SVG -->
-                    <svg class="h-12 w-12" viewBox="0 0 300 300">
-                        <circle cx="150" cy="150" r="150" fill="#E0E7FF"/>
-                        <circle cx="150" cy="150" r="120" fill="#7C3AED"/>
-                        <circle cx="150" cy="150" r="80" 
-                                stroke="#FFD700" 
-                                stroke-width="8" 
-                                fill="none" 
-                                stroke-dasharray="8,8"/>
-                        <circle cx="150" cy="100" r="15" fill="#FFD700"/>
-                        <circle cx="110" cy="160" r="12" fill="#FFD700"/>
-                        <circle cx="190" cy="160" r="12" fill="#FFD700"/>
-                        <path d="M110 170 Q150 210 190 170" 
-                              stroke="#FFD700" 
-                              stroke-width="12" 
-                              fill="none" 
-                              stroke-linecap="round"/>
-                    </svg>
-                    <span class="ml-2 text-2xl font-bold text-primary-DEFAULT">ZyxLearn</span>
+                    <img src="MDL logo.png" alt="DeskLab Logo" class="h-10 w-auto"/>
+                    <span class="ml-2 text-xl font-bold">DeskLab</span>
                 </div>
             </div>
-        </nav>
-    </header>
+        </header>
 
-<!-- Hero Section with Graph Learning Path -->
-<section class="relative pt-16 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row gap-8 items-start">
-            <!-- Learning Path Visual -->
-            <div class="w-full lg:w-3/5 h-[500px] bg-white/50 rounded-2xl p-6">
-                <svg class="w-full h-full" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="masteredGradient">
-                            <stop offset="0%" stop-color="#22c55e" stop-opacity="0.3"/>
-                            <stop offset="100%" stop-color="#22c55e" stop-opacity="0.1"/>
-                        </linearGradient>
-                        <linearGradient id="attentionGradient">
-                            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3"/>
-                            <stop offset="100%" stop-color="#ef4444" stop-opacity="0.1"/>
-                        </linearGradient>
-                        <linearGradient id="loadingGradient">
-                            <stop offset="0%" stop-color="#6b7280" stop-opacity="0.3"/>
-                            <stop offset="100%" stop-color="#6b7280" stop-opacity="0.1"/>
-                        </linearGradient>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                            <feMerge>
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                    </defs>
-
-                    <!-- Connecting Paths -->
-                    <g class="paths">
-                        <!-- Mastered connections -->
-                        <path d="M150 50 Q 250 80 350 50" 
-                              stroke="#22c55e" 
-                              stroke-width="3" 
-                              fill="none" 
-                              stroke-dasharray="6,6"
-                              opacity="0.3"/>
-
-                        <!-- Needs attention connections -->
-                        <path d="M150 50 Q 200 100 250 130" 
-                              stroke="#ef4444" 
-                              stroke-width="3" 
-                              fill="none" 
-                              opacity="0.3"/>
-                        
-                        <path d="M350 50 Q 300 100 250 130" 
-                              stroke="#ef4444" 
-                              stroke-width="3" 
-                              fill="none" 
-                              opacity="0.3"/>
-
-                        <!-- Loading connections -->
-                        <path d="M250 130 Q 200 180 150 220" 
-                              stroke="#6b7280" 
-                              stroke-width="2" 
-                              fill="none" 
-                              stroke-dasharray="4,4"
-                              opacity="0.2">
-                            <animate attributeName="stroke-dashoffset" 
-                                     from="0" 
-                                     to="24" 
-                                     dur="2s" 
-                                     repeatCount="indefinite"/>
-                        </path>
-
-                        <path d="M250 130 Q 300 180 350 220" 
-                              stroke="#6b7280" 
-                              stroke-width="2" 
-                              fill="none" 
-                              stroke-dasharray="4,4"
-                              opacity="0.2"/>
-
-                        <path d="M150 220 Q 200 270 250 300" 
-                              stroke="#6b7280" 
-                              stroke-width="2" 
-                              fill="none" 
-                              stroke-dasharray="4,4"
-                              opacity="0.2"/>
-
-                        <path d="M350 220 Q 300 270 250 300" 
-                              stroke="#6b7280" 
-                              stroke-width="2" 
-                              fill="none" 
-                              stroke-dasharray="4,4"
-                              opacity="0.2"/>
-                    </g>
-
-                    <!-- Nodes -->
-                    <!-- Top Tier (Mastered) -->
-                    <g transform="translate(150,50)" class="mastered">
-                        <circle r="35" fill="url(#masteredGradient)" filter="url(#glow)">
-                            <animate attributeName="r" values="35;37;35" dur="2s" repeatCount="indefinite"/>
-                        </circle>
-                        <path d="M-15 0 L-5 10 L15 -10" 
-                              stroke="#22c55e" 
-                              stroke-width="4" 
-                              fill="none" 
-                              stroke-linecap="round" 
-                              stroke-linejoin="round"/>
-                        <text text-anchor="middle" dy="60" fill="#22c55e" font-size="14" font-weight="bold">
-                            Order of Operations
-                        </text>
-                    </g>
-
-                    <g transform="translate(350,50)" class="mastered">
-                        <circle r="35" fill="url(#masteredGradient)" filter="url(#glow)">
-                            <animate attributeName="r" values="35;37;35" dur="2s" repeatCount="indefinite"/>
-                        </circle>
-                        <path d="M-15 0 L-5 10 L15 -10" 
-                              stroke="#22c55e" 
-                              stroke-width="4" 
-                              fill="none" 
-                              stroke-linecap="round" 
-                              stroke-linejoin="round"/>
-                        <text text-anchor="middle" dy="60" fill="#22c55e" font-size="14" font-weight="bold">
-                            Basic Numbers
-                        </text>
-                    </g>
-
-                    <!-- Middle (Needs Attention) -->
-                    <g transform="translate(250,130)" class="attention">
-                        <circle r="35" fill="url(#attentionGradient)" filter="url(#glow)"/>
-                        <path d="M0 -20 L3 -10 L3 -5 L-3 -5 L-3 -10 Z M-1 0 H1 V2 H-1" 
-                              fill="#ef4444"/>
-                        <text text-anchor="middle" dy="60" fill="#ef4444" font-size="14" font-weight="bold">
-                            Exponents
-                        </text>
-                    </g>
-
-                    <!-- Bottom Tier (Loading) -->
-                    <g transform="translate(150,220)" class="loading">
-                        <circle r="35" fill="url(#loadingGradient)" filter="url(#glow)"/>
-                        <circle cx="0" cy="0" r="25" fill="none" stroke="#6b7280" stroke-width="4" stroke-dasharray="110,157">
-                            <animateTransform attributeName="transform"
-                                            type="rotate"
-                                            from="0 0 0"
-                                            to="360 0 0"
-                                            dur="3s"
-                                            repeatCount="indefinite"/>
-                        </circle>
-                        <text text-anchor="middle" dy="60" fill="#6b7280" font-size="14">
-                            Factoring
-                        </text>
-                    </g>
-
-                    <g transform="translate(350,220)" class="loading">
-                        <circle r="35" fill="url(#loadingGradient)" filter="url(#glow)"/>
-                        <circle cx="0" cy="0" r="25" fill="none" stroke="#6b7280" stroke-width="4" stroke-dasharray="110,157">
-                            <animateTransform attributeName="transform"
-                                            type="rotate"
-                                            from="0 0 0"
-                                            to="360 0 0"
-                                            dur="3s"
-                                            repeatCount="indefinite"/>
-                        </circle>
-                        <text text-anchor="middle" dy="60" fill="#6b7280" font-size="14">
-                            Square Roots
-                        </text>
-                    </g>
-
-                    <!-- Final Node (Loading) -->
-                    <g transform="translate(250,300)" class="loading">
-                        <circle r="35" fill="url(#loadingGradient)" filter="url(#glow)"/>
-                        <circle cx="0" cy="0" r="25" fill="none" stroke="#6b7280" stroke-width="4" stroke-dasharray="110,157">
-                            <animateTransform attributeName="transform"
-                                            type="rotate"
-                                            from="0 0 0"
-                                            to="360 0 0"
-                                            dur="3s"
-                                            repeatCount="indefinite"/>
-                        </circle>
-                        <text text-anchor="middle" dy="60" fill="#6b7280" font-size="14">
-                            Quadratic Formula
-                        </text>
-                    </g>
-
-                    <!-- Legend -->
-                    <g transform="translate(50, 420)" class="legend">
-                        <!-- Mastered Legend -->
-                        <g transform="translate(0, 0)">
-                            <circle r="15" fill="url(#masteredGradient)" filter="url(#glow)"/>
-                            <path d="M-8 0 L-3 5 L8 -5" 
-                                  stroke="#22c55e" 
-                                  stroke-width="2" 
-                                  fill="none" 
-                                  stroke-linecap="round" 
-                                  stroke-linejoin="round"/>
-                            <text x="25" y="5" fill="#22c55e" font-size="14" font-weight="medium">Mastered</text>
-                        </g>
-
-                        <!-- Needs Attention Legend -->
-                        <g transform="translate(150, 0)">
-                            <circle r="15" fill="url(#attentionGradient)" filter="url(#glow)"/>
-                            <path d="M0 -10 L2 -5 L2 -2 L-2 -2 L-2 -5 Z M-0.5 0 H0.5 V2 H-0.5" 
-                                  fill="#ef4444"/>
-                            <text x="25" y="5" fill="#ef4444" font-size="14" font-weight="medium">Needs Review</text>
-                        </g>
-
-                        <!-- Loading Legend -->
-                        <g transform="translate(320, 0)">
-                            <circle r="15" fill="url(#loadingGradient)" filter="url(#glow)"/>
-                            <circle cx="0" cy="0" r="10" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="40,60">
-                                <animateTransform attributeName="transform"
-                                                type="rotate"
-                                                from="0 0 0"
-                                                to="360 0 0"
-                                                dur="3s"
-                                                repeatCount="indefinite"/>
-                            </circle>
-                            <text x="25" y="5" fill="#6b7280" font-size="14" font-weight="medium">Coming Up</text>
-                        </g>
-                    </g>
-                </svg>
-            </div>
-
-            <!-- Content -->
-            <div class="w-full lg:w-2/5 text-center lg:text-left">
-                <h1 class="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl">
-                    Learn Better with 
-                    <span class="text-primary-DEFAULT block">Smart Assessment</span>
-                </h1>
-                <p class="mt-6 text-xl text-gray-600 leading-relaxed">
-                    Regular assessments and personalized recommendations help you learn smarter, not harder. Get instant feedback and curated content tailored to your needs.
-                </p>
-
-                <div class="mt-10">
-                    <form class="flex flex-col sm:flex-row gap-3">
-                        <div class="flex-1 max-w-xs">
-                            <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 border-2 border-primary-light/20 rounded-lg focus:ring-2 focus:ring-primary-DEFAULT focus:border-primary-DEFAULT" required>
+        <!-- Hero Section with Form -->
+        <section class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Left side - Hero Content -->
+                <div>
+                    <div class="inline-block bg-orange-100 text-orange-700 px-4 py-1 rounded-full mb-6">
+                        Coming Soon - Join the Waitlist
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        Learn Maths Better with Smart Assessment
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Regular assessments and personalized recommendations help you learn smarter, not harder. Get instant feedback and curated content tailored to your needs.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>Grades 5-10</span>
                         </div>
-                        <select class="w-full sm:w-auto px-4 py-3 border-2 border-primary-light/20 rounded-lg focus:ring-2 focus:ring-primary-DEFAULT focus:border-primary-DEFAULT">
-                            <option value="" disabled selected>I am a...</option>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>Complete Math Curriculum</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side - Form -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-2xl font-bold mb-6">Get Early Access</h2>
+                    <form class="space-y-4">
+                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <select class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">I am a...</option>
                             <option value="student">Student</option>
                             <option value="parent">Parent</option>
                             <option value="teacher">Teacher</option>
                         </select>
-                        <button type="submit" class="w-full sm:w-auto bg-primary-DEFAULT text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors">
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium transition duration-200">
                             Join Waitlist
                         </button>
+                        <p class="text-sm text-gray-500 text-center">
+                            Join now and get 3 months free access when we launch
+                        </p>
                     </form>
-                    <p class="mt-3 text-sm text-gray-500">1 month free access and 20% lifetime discount</p>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-    <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Educators Banner -->
-        <div class="mx-auto my-12">
-            <div class="bg-blue-50 px-4 py-3 rounded-lg border border-blue-200">
-                <div class="flex items-center justify-center space-x-2">
-                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
-                    <span class="text-base text-blue-700 font-medium">Built with experienced math and science educators</span>
-                </div>
-            </div>
-        </div>
+        </section>
 
-        <!-- <div class="flex items-center justify-center space-x-2 bg-blue-100 text-blue-800 px-6 py-2 rounded-lg mb-8 border border-blue-200 my-12">
-            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-            <span class="font-medium">Built with experienced math and science educators</span>
-        </div> -->
-
-        <!-- Value Props -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-    <!-- Quick Assessment -->
-    <div class="bg-white p-8 rounded-xl shadow-sm border-2 border-primary-light/20 hover:border-primary-DEFAULT transition-all duration-200">
-        <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-primary-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <!-- Same SVG -->
-            </svg>
-        </div>
-        <h3 class="text-lg font-semibold mb-2 text-gray-900 flex items-center gap-2">
-            Quick Assessments
-            <span class="text-primary-DEFAULT">✨</span>
-        </h3>
-        <p class="text-gray-600">15-minute adaptive tests that identify math and science knowledge gaps accurately</p>
-    </div>
-
-    <!-- Personalized Content -->
-    <div class="bg-white p-8 rounded-xl shadow-sm border-2 border-primary-light/20 hover:border-primary-DEFAULT transition-all duration-200">
-        <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-primary-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <!-- Same SVG -->
-            </svg>
-        </div>
-        <h3 class="text-lg font-semibold mb-2 text-gray-900 flex items-center gap-2">
-            Personalized Content
-            <span class="text-primary-DEFAULT">🎯</span>
-        </h3>
-        <p class="text-gray-600">AI-curated math and science learning paths matched to your style</p>
-    </div>
-
-    <!-- Progress Tracking -->
-    <div class="bg-white p-8 rounded-xl shadow-sm border-2 border-primary-light/20 hover:border-primary-DEFAULT transition-all duration-200">
-        <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-primary-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <!-- Same SVG -->
-            </svg>
-        </div>
-        <h3 class="text-lg font-semibold mb-2 text-gray-900 flex items-center gap-2">
-            Progress Tracking
-            <span class="text-primary-DEFAULT">📈</span>
-        </h3>
-        <p class="text-gray-600">Real-time insights showing your improvement in every subject</p>
-    </div>
-</div>
-
-        <!-- Early Access Benefits -->
-        <div class="text-center mb-16">
-            <h3 class="text-2xl font-bold mb-8">Early Access Benefits</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-4">
-                    <div class="text-accent-DEFAULT font-bold mb-2">1 Month Free</div>
-                    <p class="text-gray-600">Full access to all premium features</p>
-                </div>
-                <div class="p-4">
-                    <div class="text-accent-DEFAULT font-bold mb-2">Priority Support</div>
-                    <p class="text-gray-600">Direct line to our support team</p>
-                </div>
-                <div class="p-4">
-                    <div class="text-accent-DEFAULT font-bold mb-2">Founding Member</div>
-                    <p class="text-gray-600">Special badge and recognition</p>
-                </div>
-                <div class="p-4">
-                    <div class="text-accent-DEFAULT font-bold mb-2">Lifetime Discount</div>
-                    <p class="text-gray-600">20% off forever</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-50 border-t border-gray-200 mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Logo and Description -->
-                <div class="col-span-2">
-                    <div class="flex items-center mb-4">
-                        <!-- Logo SVG -->
-                        <svg class="h-8 w-8" viewBox="0 0 300 300">
-                            <circle cx="150" cy="150" r="150" fill="#E0E7FF"/>
-                            <circle cx="150" cy="150" r="120" fill="#7C3AED"/>
-                            <circle cx="150" cy="150" r="80" 
-                                    stroke="#FFD700" 
-                                    stroke-width="8" 
-                                    fill="none" 
-                                    stroke-dasharray="8,8"/>
-                            <circle cx="150" cy="100" r="15" fill="#FFD700"/>
-                            <circle cx="110" cy="160" r="12" fill="#FFD700"/>
-                            <circle cx="190" cy="160" r="12" fill="#FFD700"/>
-                            <path d="M110 170 Q150 210 190 170" 
-                                  stroke="#FFD700" 
-                                  stroke-width="12" 
-                                  fill="none" 
-                                  stroke-linecap="round"/>
-                        </svg>
-                        <span class="ml-2 text-xl font-bold text-primary-DEFAULT">ZyxLearn</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Smart assessment platform helping K-12 students master math and science through personalized learning paths.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-gray-500">
-                            <span class="sr-only">Twitter</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-gray-500">
-                            <span class="sr-only">LinkedIn</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                        </a>
+        <!-- Features -->
+        <section class="container mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="space-y-4">
+                        <i class="fas fa-bolt text-4xl text-blue-600"></i>
+                        <h3 class="text-xl font-bold">Quick Assessments</h3>
+                        <p class="text-gray-600">15-minute adaptive tests that identify knowledge gaps accurately</p>
                     </div>
                 </div>
 
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="text-sm font-semibold text-gray-900 uppercase mb-4">Product</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Features</a></li>
-                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Pricing</a></li>
-                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Support</a></li>
-                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">For Schools</a></li>
-                    </ul>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="space-y-4">
+                        <i class="fas fa-book-open text-4xl text-blue-600"></i>
+                        <h3 class="text-xl font-bold">Personalized Content</h3>
+                        <p class="text-gray-600">AI-curated study materials matched to your learning style</p>
+                    </div>
                 </div>
 
-                <!-- Company -->
-                <div>
-                    <h4 class="text-sm font-semibold text-gray-900 uppercase mb-4">Company</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">About Us</a></li>
-                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Careers</a></li>
-                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Blog</a></li>
-                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Contact</a></li>
-                    </ul>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="space-y-4">
+                        <i class="fas fa-chart-line text-4xl text-blue-600"></i>
+                        <h3 class="text-xl font-bold">Progress Tracking</h3>
+                        <p class="text-gray-600">Real-time insights for students, parents, and teachers</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Bottom Bar -->
-            <div class="mt-12 pt-8 border-t border-gray-200">
-                <p class="text-base text-gray-400 text-center">&copy; 2025 ZyxLearn. All rights reserved.</p>
+        <!-- Trust Indicators -->
+        <section class="bg-gray-50 py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-globe text-2xl text-blue-600"></i>
+                        <div>
+                            <h3 class="font-bold mb-2">Curriculum Aligned</h3>
+                            <p class="text-gray-600">Mapped to educational standards across India, Nigeria, and USA</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-shield-alt text-2xl text-blue-600"></i>
+                        <div>
+                            <h3 class="font-bold mb-2">Safe & Secure</h3>
+                            <p class="text-gray-600">End-to-end encryption and COPPA-compliant data protection</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-users text-2xl text-blue-600"></i>
+                        <div>
+                            <h3 class="font-bold mb-2">Academic Advisory</h3>
+                            <p class="text-gray-600">Guided by experienced educators and learning experts</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-50 py-8">
+            <div class="container mx-auto px-4 text-center text-gray-600">
+                <p>© 2025 DeskLab. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
