@@ -19,6 +19,65 @@
         }
     </style>
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('waitlistForm');
+        const successState = document.getElementById('successState');
+        const formMessage = document.getElementById('formMessage');
+        const submitText = form.querySelector('.submit-text');
+        const loadingText = form.querySelector('.loading-text');
+        
+        // Replace this URL with your deployed Google Apps Script Web App URL
+        const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            submitText.classList.add('hidden');
+            loadingText.classList.remove('hidden');
+            formMessage.classList.add('hidden');
+            
+            const formData = {
+                email: form.email.value,
+                role: form.role.value,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbyDKVWqrE3Hew8C2CyUBz4Nr4MCdsKzAKil6I0FAphaYVWNTF4IDEXspKblfxGe7A2l/exec', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Show success state
+                    form.classList.add('hidden');
+                    successState.classList.remove('hidden');
+                } else {
+                    // Show error message
+                    formMessage.classList.remove('hidden');
+                    formMessage.querySelector('p').textContent = result.message;
+                    formMessage.querySelector('p').classList.add('text-red-600');
+                }
+            } catch (error) {
+                // Show error message
+                formMessage.classList.remove('hidden');
+                formMessage.querySelector('p').textContent = 'An error occurred. Please try again.';
+                formMessage.querySelector('p').classList.add('text-red-600');
+            }
+            
+            // Reset button state
+            submitText.classList.remove('hidden');
+            loadingText.classList.add('hidden');
+        });
+    });
+</script>
 <body class="font-sans antialiased">
     <div class="hero-gradient min-h-screen">
         <!-- Header -->
@@ -212,7 +271,7 @@
         </footer>
     </div>
 
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Update content based on variant
             document.getElementById('mainHeading').textContent = currentVariant.heading;
@@ -286,6 +345,6 @@
                 document.getElementById('errorMessage').style.display = 'block';
             }
         });
-    </script>
+    </script> -->
 </body>
 </html>
