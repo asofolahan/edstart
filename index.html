@@ -56,7 +56,7 @@
                 
                 const result = await response.json();
                 
-                if (result.success) {
+                if (result.status == 'success') {
                     // Show success state
                     form.classList.add('hidden');
                     successState.classList.remove('hidden');
