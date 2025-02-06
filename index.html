@@ -69,16 +69,19 @@
                     // formMessage.querySelector('p').classList.add('text-red-600');
                     // return;
                 }
+
+                form.classList.add('hidden');
+                successState.classList.remove('hidden');
                 
-                if (response.ok) {
-                    // Show success state
-                    form.classList.add('hidden');
-                    successState.classList.remove('hidden');
-                } else {
-                    formMessage.classList.remove('hidden');
-                    formMessage.querySelector('p').textContent = result.message || 'Submission failed. Please try again.';
-                    formMessage.querySelector('p').classList.add('text-red-600');
-                }
+                // if (response.ok) {
+                //     // Show success state
+                //     form.classList.add('hidden');
+                //     successState.classList.remove('hidden');
+                // } else {
+                //     formMessage.classList.remove('hidden');
+                //     formMessage.querySelector('p').textContent = result.message || 'Submission failed. Please try again.';
+                //     formMessage.querySelector('p').classList.add('text-red-600');
+                // }
             } catch (error) {
                 console.error('Fetch error:', error);
                 formMessage.classList.remove('hidden');
