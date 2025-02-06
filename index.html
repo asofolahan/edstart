@@ -63,11 +63,11 @@
                 try {
                     result = await response.json();
                 } catch (parseError) {
-                    console.error('Failed to parse response:', parseError);
-                    formMessage.classList.remove('hidden');
-                    formMessage.querySelector('p').textContent = 'Server response error. Please try again.';
-                    formMessage.querySelector('p').classList.add('text-red-600');
-                    return;
+                    // console.error('Failed to parse response:', parseError);
+                    // formMessage.classList.remove('hidden');
+                    // formMessage.querySelector('p').textContent = 'Server response error. Please try again.';
+                    // formMessage.querySelector('p').classList.add('text-red-600');
+                    // return;
                 }
                 
                 if (response.ok) {
