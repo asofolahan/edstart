@@ -44,35 +44,45 @@
                 timestamp: new Date().toISOString()
             };
             
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycDOo2huIXUxbXtXee6KAYiEcfB0hkPav3J0Sn9oRd4NLH9lhuipS2ZzFgAhEUfGyn/exec';
             try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbycDOo2huIXUxbXtXee6KAYiEcfB0hkPav3J0Sn9oRd4NLH9lhuipS2ZzFgAhEUfGyn/exec', {
+                const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    mode: 'cors',
+                    mode: 'cors', // Add this
                     body: JSON.stringify(formData)
                 });
                 
-                const result = await response.json();
+                // Add this debug log
+                console.log('Raw response:', await response.text().catch(e => 'Failed to get response text'));
                 
-                console.log(response);
+                // If we can't parse the response, show a specific error
+                let result;
+                try {
+                    result = await response.json();
+                } catch (parseError) {
+                    console.error('Failed to parse response:', parseError);
+                    formMessage.classList.remove('hidden');
+                    formMessage.querySelector('p').textContent = 'Server response error. Please try again.';
+                    formMessage.querySelector('p').classList.add('text-red-600');
+                    return;
+                }
+                
                 if (response.ok) {
                     // Show success state
                     form.classList.add('hidden');
                     successState.classList.remove('hidden');
                 } else {
-                    // Show error message
-                    console.error('Fetch error 2:', error);
                     formMessage.classList.remove('hidden');
-                    formMessage.querySelector('p').textContent = result.message;
+                    formMessage.querySelector('p').textContent = result.message || 'Submission failed. Please try again.';
                     formMessage.querySelector('p').classList.add('text-red-600');
                 }
             } catch (error) {
-                // Show error message
                 console.error('Fetch error:', error);
                 formMessage.classList.remove('hidden');
-                formMessage.querySelector('p').textContent = 'An error occurred. Please try again.';
+                formMessage.querySelector('p').textContent = 'Connection error. Please try again.';
                 formMessage.querySelector('p').classList.add('text-red-600');
             }
             
