@@ -57,18 +57,20 @@
                 const result = await response.json();
                 
                 console.log(response);
-                if (result.status == 'success') {
+                if (response.ok) {
                     // Show success state
                     form.classList.add('hidden');
                     successState.classList.remove('hidden');
                 } else {
                     // Show error message
+                    console.error('Fetch error 2:', error);
                     formMessage.classList.remove('hidden');
                     formMessage.querySelector('p').textContent = result.message;
                     formMessage.querySelector('p').classList.add('text-red-600');
                 }
             } catch (error) {
                 // Show error message
+                console.error('Fetch error:', error);
                 formMessage.classList.remove('hidden');
                 formMessage.querySelector('p').textContent = 'An error occurred. Please try again.';
                 formMessage.querySelector('p').classList.add('text-red-600');
